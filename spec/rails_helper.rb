@@ -73,6 +73,9 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
+  config.filter_sensitive_data("#{ENV['GEOCODE_KEY']}") { ENV['GEOCODE_KEY'] }
+  config.filter_sensitive_data("#{ENV['WEATHER_KEY']}") { ENV['WEATHER_KEY'] }
+  config.filter_sensitive_data("#{ENV['FLICK_KEY']}") { ENV['FLICK_KEY'] }
   config.cassette_library_dir = 'spec/fixture vcr_cassettes'
   config.hook_into :webmock
   config.allow_http_connections_when_no_cassette = true
