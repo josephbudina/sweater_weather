@@ -11,8 +11,4 @@ class OpenWeather
     weather = OpenWeatherService.get_weather_data(lat, lng)
     OpenWeather.new(weather)
   end
-
-  def kelvin_to_fahrenheit(kelvin)
-    
-  end
 end
