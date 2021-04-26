@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :forecasts, only: [:index]
       resources :users, only: [:create]
       resources :salaries, only: [:index]
+      resources :sessions, only: [:create]
     end
   end
 end
