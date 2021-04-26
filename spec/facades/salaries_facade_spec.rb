@@ -7,6 +7,8 @@ RSpec.describe SalariesFacade, type: :model do
       result = SalariesFacade.get_forecast("denver")
 
       expect(result.class).to eq(Hash)
+      expect(result.size).to eq(2)
+      expect(result.keys).to eq([:summary, :temperature])
     end
   end
   
