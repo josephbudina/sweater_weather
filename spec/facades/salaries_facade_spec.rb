@@ -24,7 +24,6 @@ RSpec.describe SalariesFacade, type: :model do
     it "should have correct hash" do 
       result = SalariesFacade.salary_set_up("denver")
 
-      binding.pry
       expect(result.class).to eq(Salary)
       expect(result.destination).to eq("denver")
       expect(result.id).to eq(nil)
