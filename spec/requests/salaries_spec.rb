@@ -4,7 +4,7 @@ RSpec.describe 'Api::V1::Salaries API', type: :request do
 
   describe 'GET /salaries' do
     valid_params = {
-                  destination: "Denver,Co"
+                  destination: "Denver"
     }
 
     it 'returns items' do
@@ -13,7 +13,6 @@ RSpec.describe 'Api::V1::Salaries API', type: :request do
 
       expect(response.status).to eq(200)
       expect(json).not_to be_empty
-      binding.pry
     end
   end
 end
