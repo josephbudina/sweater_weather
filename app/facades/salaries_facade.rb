@@ -18,7 +18,6 @@ class SalariesFacade
       jobs.include?(title['job']['title'])
     end
     titles.map do |title|
-
       salaries = {
         title: title['job']['id'],
         min: sprintf("$%2.2f", title['salary_percentiles']['percentile_25'].round(2)),
