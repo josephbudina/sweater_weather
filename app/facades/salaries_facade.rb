@@ -21,8 +21,9 @@ class SalariesFacade
 
       salaries = {
         title: title['job']['id'],
-        min: title['salary_percentiles']['percentile_25'].round(2),
-        max: title['salary_percentiles']['percentile_75'].round(2)
+        min: sprintf("$%2.2f", title['salary_percentiles']['percentile_25'].round(2)),
+        max: sprintf("$%2.2f", title['salary_percentiles']['percentile_75'].round(2))
+      }
     end
   end
 
