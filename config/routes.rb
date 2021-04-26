@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :forecasts, only: [:index]
       resources :users, only: [:create]
+      resources :salaries, only: [:index]
     end
   end
 end
