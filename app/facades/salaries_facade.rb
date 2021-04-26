@@ -6,17 +6,32 @@ class SalariesFacade
 
     forecast = {
       summary: weather.weather_data[:current][:weather][0][:description],
-      temperature: weather.weather_data[:current][:temp]
+      temperature: "#{weather.weather_data[:current][:temp]} F"
     }
   end
 
   def self.get_salaries(destination)
-    salaries = Salary.get_salaries(destination)
+    salary = SalaryData.get_salaries(destination)
 
-    binding.pry
-    titles = salaries.salaries.find_all do |title|
+    titles = salary.salaries.find_all do |title|
       jobs = ['Data Analyst', 'Data Scientist', 'Mobile Developer', 'QA Engineer', 'Software Engineer', 'Systems Administrator', 'Web Developer']
-      title['job']
+      jobs.include?(title['job']['title'])
     end
+    titles.map do |title|
+
+      salaries = {
+        title: title['job']['id'],
+        min: title['salary_percentiles']['percentile_25'].round(2),
+        max: title['salary_percentiles']['percentile_75'].round(2)
+    end
+  end
+
+  def self.salary_set_up(destination)
+    attributes = {
+      destination: destination,
+      forecast: get_forecast(destination),
+      salaries: get_salaries(destination)
+    }
+    Salary.new(attributes)
   end
 end

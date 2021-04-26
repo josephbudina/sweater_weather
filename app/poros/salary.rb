@@ -1,14 +1,13 @@
 class Salary
-  attr_reader :id, 
-              :salaries
+  attr_reader :id,
+              :destination,
+              :salaries,
+              :forecast
 
   def initialize(data)
     @id = nil
-    @salaries = data
-  end
-
-  def self.get_salaries(destination)
-    salaries = TeleportService.get_urban_salary_data(destination)["salaries"]
-    Salary.new(salaries)
+    @destination = data[:destination]
+    @forecast = data[:forecast]
+    @salaries = data[:salaries]
   end
 end
