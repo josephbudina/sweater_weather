@@ -20,7 +20,7 @@ RSpec.describe SalariesFacade, type: :model do
     end
   end
 
-  describe "#salay_setup" do
+  describe "#salary_setup" do
     it "should have correct hash" do 
       result = SalariesFacade.salary_set_up("denver")
 
