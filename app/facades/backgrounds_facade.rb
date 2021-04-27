@@ -20,5 +20,7 @@ class BackgroundsFacade
         author: photo("denver,co").data[:photo][:owner][:username],
       }
     }
+
+    Background.new(image)
   end
 end

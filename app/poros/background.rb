@@ -5,7 +5,7 @@ class Background
 
   def initialize(data)
     @id = nil
-    @image = data
-    @credit = data
+    @image = data[:image_url]
+    @credit = data[:credit]
   end
 end

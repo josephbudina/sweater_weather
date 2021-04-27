@@ -4,6 +4,11 @@ class GeocodeService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.get_route(from, to)
+    response = conn.get("/directions/v2/route?key=#{ENV["GEOCODE_KEY"]}&from=#{from}&to=#{to}")
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def self.conn
     @conn ||= Faraday.new(url: 'http://www.mapquestapi.com')
   end
