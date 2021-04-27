@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :forecasts, only: [:index]
-      resources :users, only: [:create]
       resources :salaries, only: [:index]
+      resources :backgrounds, only: [:index]
+      resources :users, only: [:create]
       resources :sessions, only: [:create]
+      resources :road_trips, only: [:create]
     end
   end
 end
