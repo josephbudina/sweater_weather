@@ -21,5 +21,14 @@ RSpec.describe 'Api::V1::Forecasts API', type: :request do
       expect(json[:data][:attributes][:daily_weather]).not_to be_empty
       expect(json[:data][:attributes][:hourly_weather]).not_to be_empty
     end
+
+    it 'returns 404', :vcr do
+      get api_v1_forecasts_path
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response.status).to eq(400)
+      expect(json).not_to be_empty
+      expect(json[:error]).to eq("Invalid Parameters")
+    end
   end
 end
