@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
     if user
       render json: UsersSerializer.new(user), status: 201
     else
-      render json: user.errors.full_messages, status: 400
+      render json: {error: "Invalid Parameters"}, status: 400
     end
   end
 end
