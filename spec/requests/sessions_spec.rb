@@ -13,6 +13,8 @@ RSpec.describe 'Api::V1::Sessions API', type: :request do
       expect(json[:data].size).to eq(3)
       expect(json[:data][:attributes].size).to eq(2)
       expect(json[:data][:attributes].keys).to eq([:email, :api_key])
+      expect(json[:data][:attributes][:email]).to eq("a@example.com")
+      expect(json[:data][:attributes][:api_key]).to eq(nil)
     end
 
     it 'returns 404', :vcr do
