@@ -12,7 +12,16 @@ RSpec.describe 'Api::V1::Sessions API', type: :request do
       expect(json).not_to be_empty
       expect(json[:data].size).to eq(3)
       expect(json[:data][:attributes].size).to eq(2)
-      expect(json[:data][:attributes].keys).to eq([:email, :password, :api_key])
+      expect(json[:data][:attributes].keys).to eq([:email, :api_key])
+    end
+
+    it 'returns 404', :vcr do
+      post api_v1_sessions_path
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response.status).to eq(400)
+      expect(json).not_to be_empty
+      expect(json[:error]).to eq("Invalid Parameters")
     end
   end
 end

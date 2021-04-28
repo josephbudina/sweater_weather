@@ -18,7 +18,6 @@ class RoadTrip
   end
 
   def set_travel_time(data)
-    # binding.pry
     if data[:info][:messages].blank?
       seconds_to_hms(data[:route][:realTime])
     else

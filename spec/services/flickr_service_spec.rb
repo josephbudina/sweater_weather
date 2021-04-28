@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FlickrService, type: :model do
 
-  describe "#get_data" do
+  describe "#get_data", :vcr do
     it "should return json for the flickr api", :vcr do
       result = FlickrService.get_search_data("denver,co")
 
