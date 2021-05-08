@@ -28,7 +28,7 @@ RSpec.describe 'Api::V1::RoadTripsController API', type: :request do
       expect(json).not_to be_empty
       expect(json[:error]).to eq("Must provide request body")
     end
-    
+
     it 'returns sad path one param' do 
       post api_v1_users_url, params: {email: "a@example.com", password: "password", password_confirmation: "password"}
       json = JSON.parse(response.body, symbolize_names: true)
