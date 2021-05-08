@@ -20,5 +20,5 @@ jobs:
           command: bundle -v
       - ruby/bundle-install
       - run: bundle exec rspec
-      - run: rails db:{drop,create,migrate}
+      - run: bundle exec rails db:{drop,create,migrate}
       - run: bundle exec rspec
