@@ -5,11 +5,29 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.5.3-stretch-node
+        environment:
+          PGHOST: localhost
+          PGUSER: sweater_weather
+          RAILS_ENV: test
+      - image: postgres:13
+        environment:
+          POSTGRES_USER: sweater_weather
+          POSTGRES_DB: sweater_weather_test
+          POSTGRES_HOST_AUTH_METHOD: trust
     executor: ruby/default
     steps:
       - checkout
       - run:
+          name: Force Bundler Version
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      - run:
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
+      - run: bundle exec rspec
+      - run: bundle exec rails db:{drop,create,migrate}
+      - run: bundle exec rspec
