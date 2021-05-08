@@ -11,5 +11,6 @@ jobs:
       - checkout
       - run:
           name: Which bundler?
+          command: gem install bundler:2.2.11
           command: bundle -v
       - ruby/bundle-install
