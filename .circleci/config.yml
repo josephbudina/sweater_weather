@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  ruby-rails-setup: later/ruby-rails-setup@0.0.3
+  ruby: circleci/ruby@0.1.2 
 
 jobs:
   build:
