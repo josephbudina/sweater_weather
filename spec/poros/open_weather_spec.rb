@@ -10,7 +10,7 @@ RSpec.describe 'OpenWeather' do
       expect(weather.weather_data[:lat]).to eq(38.2654)
       expect(weather.weather_data[:lon]).to eq(-104.6051)
       expect(weather.weather_data.keys).to eq([:lat, :lon, :timezone, :timezone_offset, :current, :minutely, :hourly, :daily])
-      expect(weather.weather_data[:current].keys).to eq([:dt, :sunrise, :sunset, :temp, :feels_like, :pressure, :humidity, :dew_point, :uvi, :clouds, :visibility, :wind_speed, :wind_deg, :weather])
+      expect(weather.weather_data[:current].keys).to eq([:dt, :sunrise, :sunset, :temp, :feels_like, :pressure, :humidity, :dew_point, :uvi, :clouds, :visibility, :wind_speed, :weather])
     end
   end
 end
