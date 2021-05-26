@@ -53,7 +53,7 @@ for notes on how to deploy the project on a live system.
   ```
     mapquest_key: <your mapquest api>
     open_weather_map_key: <your open weather api>
-    pexels_key: <your pexels api>
+    flickr_key: <your flickr api>
   ```
 ## Endpoints
 | HTTP verbs | Paths  | Used for |
